@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home work 5</title>
+        <style>
+            body {
+                max-width: 1200px;
+                margin: 0 auto;
+                background-color: #f3f3f3;
+            }
+            span {
+                background-color: rgb(193, 193, 193);
+            }
+            code {
+                display: block;
+                background-color: #e6e6e6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Домашнє завдання №5</h1>
+        <!-- --------Задача 1------>
+        <section>
+            <h2>Задача 1. Імена користувачів</h2>
+            <p>
+                Напиши стрілочну функцію <span>getUserNames(users)</span>, яка прийматиме один параметр <span>users</span> — масив об’єктів користувачів. Функція має повертати масив імен усіх користувачів (властивість <span>name</span>) із масиву <span>users</span>.
+            </p>
+            <p>
+                Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її викликів.
+            </p>
+            <pre>
+                <code>
+                    console.log(
+                        getUserNames([
+                        {
+                          name: "Moore Hensley",
+                          email: "moorehensley@indexia.com",
+                          balance: 2811
+                        },
+                        {
+                          name: "Sharlene Bush",
+                          email: "sharlenebush@tubesys.com",
+                          balance: 3821
+                        },
+                        {
+                          name: "Ross Vazquez",
+                          email: "rossvazquez@xinware.com",
+                          balance: 3793
+                        },
+                        {
+                          name: "Elma Head",
+                          email: "elmahead@omatom.com",
+                          balance: 2278
+                        },
+                        {
+                          name: "Carey Barr",
+                          email: "careybarr@nurali.com",
+                          balance: 3951
+                        },
+                        {
+                          name: "Blackburn Dotson",
+                          email: "blackburndotson@furnigeer.com",
+                          balance: 1498
+                        },
+                        {
+                          name: "Sheree Anthony",
+                          email: "shereeanthony@kog.com",
+                          balance: 2764
+                        },
+                      ])
+                      ); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+                </code>
+            </pre>
+        </section>
+
+        <!-- --------Задача 2------>
+        <section>
+            <h2>Задача 2. Користувачі з другом</h2>
+            <p>
+                Напиши стрілочну функцію <span>getUsersWithFriend(users, friendName)</span> , яка прийматиме два параметра:
+            </p>
+            <ul>
+                <li>
+                    <p>перший параметр <sapn>users</sapn> — масив об’єктів користувачів</p>
+                </li>
+                <li>
+                    <p>другий параметр <span>friendName</span> — ім’я друга для пошуку.</p>
+                </li>
+            </ul>
+            <p>Функція має повертати масив усіх користувачів із масиву <span>users</span>, у яких є друг з іменем <span>friendName</span>. Друзі кожного користувача зберігаються у властивості <span>friends</span>. Якщо користувачів, у яких є такий других немає, то функція має повернути порожній масив.</p>
+           
+            <p>Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.</p>
+
+            <pre>
+                <code>
+                    const allUsers = [
+                        {
+                            name: "Moore Hensley",
+                            friends: ["Sharron Pace"]
+                        },
+                        {
+                            name: "Sharlene Bush",
+                            friends: ["Briana Decker", "Sharron Pace"]
+                        },
+                        {
+                            name: "Ross Vazquez",
+                            friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"]
+                        },
+                        {
+                            name: "Elma Head",
+                            friends: ["Goldie Gentry", "Aisha Tran"]
+                        },
+                        {
+                            name: "Carey Barr",
+                            friends: ["Jordan Sampson", "Eddie Strong"]
+                        },
+                        {
+                            name: "Blackburn Dotson",
+                            friends: ["Jacklyn Lucas", "Linda Chapman"]
+                        },
+                        {
+                            name: "Sheree Anthony",
+                            friends: ["Goldie Gentry", "Briana Decker"]
+                        }
+                    ];
+
+                    console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
+                    // [
+                    //   {
+                    //     name: "Sharlene Bush",
+                    //     friends: ["Briana Decker", "Sharron Pace"]
+                    //   },
+                    //   {
+                    //     name: "Sheree Anthony",
+                    //     friends: ["Goldie Gentry", "Briana Decker"]
+                    //   }
+                    // ]
+
+                    console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
+                    // [
+                    //   {
+                    //     name: "Elma Head",
+                    //     friends: ["Goldie Gentry", "Aisha Tran"]
+                    //   },
+                    //   {
+                    //     name: "Sheree Anthony",
+                    //     friends: ["Goldie Gentry", "Briana Decker"]
+                    //   }
+                    // ]
+
+                    console.log(getUsersWithFriend(allUsers, "Adrian Cross" )); // []
+                </code>
+            </pre>
+        </section>
+
+        <!-- --------Задача 3------>
+        <section>
+            <h2>Задача 3. Сортування за кількістю друзів</h2>
+            <p>
+                Напиши стрілочну функцію <span>sortByDescendingFriendCount(users)</span> , яка прийматиме один параметр <span>users</span> — масив об’єктів користувачів.
+            </p>
+
+            <p>Функція має повертати масив усіх користувачів, відсортованих за спаданням кількостій їх друзів (властивість <span>friends</span>).</p>
+
+            <p>
+                Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
+            </p>
+
+            <pre>
+                <code>
+                    console.log(
+                    sortByDescendingFriendCount([
+                        {
+                        name: "Moore Hensley",
+                        friends: ["Sharron Pace"],
+                        gender: "male"
+                        },
+                        {
+                        name: "Sharlene Bush",
+                        friends: ["Briana Decker", "Sharron Pace"],
+                        gender: "female"
+                        },
+                        {
+                        name: "Ross Vazquez",
+                        friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+                        gender: "male"
+                        },
+                        {
+                        name: "Elma Head",
+                        friends: ["Goldie Gentry", "Aisha Tran"],
+                        gender: "female"
+                        },
+                        {
+                        name: "Carey Barr",
+                        friends: ["Jordan Sampson", "Eddie Strong"],
+                        gender: "male"
+                        },
+                        {
+                        name: "Blackburn Dotson",
+                        friends: ["Jacklyn Lucas", "Linda Chapman"],
+                        gender: "male"
+                        },
+                        {
+                        name: "Sheree Anthony",
+                        friends: ["Goldie Gentry", "Briana Decker"],
+                        gender: "female"
+                        }
+                    ])
+                    );
+                    // [
+                    //   {
+                    //     name: "Ross Vazquez",
+                    //     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+                    //     gender: "male"
+                    //   },
+                    //   {
+                    //     name: "Sharlene Bush",
+                    //     friends: ["Briana Decker", "Sharron Pace"],
+                    //     gender: "female"
+                    //   },
+                    //   {
+                    //     name: "Elma Head",
+                    //     friends: ["Goldie Gentry", "Aisha Tran"],
+                    //     gender: "female"
+                    //   },
+                    //   {
+                    //     name: "Carey Barr",
+                    //     friends: ["Jordan Sampson", "Eddie Strong"],
+                    //     gender: "male"
+                    //   },
+                    //   {
+                    //     name: "Blackburn Dotson",
+                    //     friends: ["Jacklyn Lucas", "Linda Chapman"],
+                    //     gender: "male"
+                    //   },
+                    //   {
+                    //     name: "Sheree Anthony",
+                    //     friends: ["Goldie Gentry", "Briana Decker"],
+                    //     gender: "female"
+                    //   },
+                    //   {
+                    //     name: "Moore Hensley",
+                    //     friends: ["Sharron Pace"],
+                    //     gender: "male"
+                    //   }
+                    // ]
+                </code>
+            </pre>
+        </section>
+
+        <!-- --------Задача 4------>
+        <section>
+            <h2>Задача 4. Загальний баланс</h2>
+            <p>
+                Напиши стрілочну функцію <span>getTotalBalanceByGender(users, gender)</span>, яка прийматиме два параметра:
+            </p>
+            <ul>
+                <li>
+                    <p>перший параметр <span>users</span> — масив об’єктів користувачів,
+                    </p>
+                </li>
+                <li>
+                    <p>другий параметр <span>gender</span> — рядок, що зберігає стать.
+                    </p>
+                </li>
+            </ul>
+
+            <p>
+                Функція має використовувати ланцюжок виклику методів та повертати загальний баланс користувачів (властивість <span>balance</span>), стать яких (властивість <span>gender</span>) збігається зі значенням параметра <span>gender</span>.
+            </p>
+
+            <p>Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.</p>
+
+            <pre>
+                <code>
+                    const clients = [
+                        {
+                        name: "Moore Hensley",
+                        gender: "male",
+                        balance: 2811
+                    },
+                    {
+                        name: "Sharlene Bush",
+                        gender: "female",
+                        balance: 3821
+                    },
+                    {
+                        name: "Ross Vazquez",
+                        gender: "male",
+                        balance: 3793
+                    },
+                    {
+                        name: "Elma Head",
+                        gender: "female",
+                        balance: 2278
+                    },
+                    {
+                        name: "Carey Barr",
+                        gender: "male",
+                        balance: 3951
+                    },
+                    {
+                        name: "Blackburn Dotson",
+                        gender: "male",
+                        balance: 1498
+                    },
+                    {
+                        name: "Sheree Anthony",
+                        gender: "female",
+                        balance: 2764
+                    }
+                ];
+                
+                console.log(getTotalBalanceByGender(clients, "male")); // 12053
+                
+                console.log(getTotalBalanceByGender(clients, "female")); // 8863
+                </code>
+            </pre>
+        </section>
+
+        <script type="module" src="./js/task-1.js"></script>
+        <script type="module" src="./js/task-2.js"></script>
+        <script type="module" src="./js/task-3.js"></script>
+        <script type="module" src="./js/task-4.js"></script>
+    </body>
+</html>
